@@ -2,7 +2,7 @@
 	<view class="content">
 		<view class="home-header">
 			<!-- <image src='../../../static/img/01.png' mode="scaleToFill"></image> -->
-			<img class="card-img" src='../../../static/img/01.png' />
+			<img class="card-img" src='../../../static/img/dog.jpeg' />
 			<button type="primary" class="start-btn" @click="goto()">开始学习单词</button>
 		</view>
 		<view class="school-grade">
