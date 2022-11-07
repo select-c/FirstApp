@@ -9,7 +9,7 @@
 			</view>
 			<!-- 			<view class="words-title2">{{itemSelect.WordName}}</view> -->
 			<view class="words-items">
-				<button v-for="(item,index) in items" @click="onSelected(item)"><span>
+				<button v-for="(item,index) in items" :key="index" @click="onSelected(item)"><span>
 						<span v-if="index==0">A.</span>
 						<span v-if="index==1">B.</span>
 						<span v-if="index==2">C.</span>
@@ -27,8 +27,10 @@
 </template>
 
 <script>
-	//var plugin = requirePlugin("WechatSI");
-	const audio = wx ? wx.createInnerAudioContext() : null;
+	var plugin = requirePlugin("WechatSI");
+	const audio = wx ? wx.createInnerAudioContext({
+		useWebAudioImplement: true
+	}) : null;
 	export default {
 		data() {
 			return {

@@ -1,6 +1,7 @@
 <template>
 	<view class="content">
 		页面 - 2
+		<button @click="postData()"></button>
 	</view>
 </template>
 
@@ -15,7 +16,36 @@
 
 		},
 		methods: {
-
+			postData() {
+				let params = {
+					methodName: "insert",
+					data: [{
+							RoomNo: "101",
+							RoomName: "101房"
+						},
+						{
+							RoomNo: "101",
+							RoomName: "101房"
+						},
+						{
+							RoomNo: "101",
+							RoomName: "101房"
+						},
+						{
+							RoomNo: "101",
+							RoomName: "101房"
+						},
+						{
+							RoomNo: "101",
+							RoomName: "101房"
+						}
+					]
+				}
+				this.$service.callBO("WxLoginBO", "getPhoneNumber", params).then(res => {
+					console.log(res);
+					//this.mobile = res;
+				});
+			},
 		}
 	}
 </script>

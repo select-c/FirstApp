@@ -4,7 +4,7 @@
 		{
 			"path": "pages/tabbar/tabbar-1/tabbar-1",
 			"style": {
-				"navigationBarTitleText": "uni-app"
+				"navigationBarTitleText": "单词古诗"
 			}
 		},
 		{

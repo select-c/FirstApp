@@ -1,7 +1,7 @@
 <template>
 	<view class="content">
 		<view class="home-header">
-			<!-- <image src='../../../static/img/01.png' mode="scaleToFill"></image> -->
+			<!-- <image class="card-img" src='../../../static/img/dog.jpeg' mode="scaleToFill"></image> -->
 			<img class="card-img" src='../../../static/img/dog.jpeg' />
 			<button type="primary" class="start-btn" @click="goto()">开始学习单词</button>
 		</view>
@@ -63,13 +63,13 @@
 
 		.home-header {
 			width: 100%;
-			max-height: 70vh;
+			max-height: 50vh;
 			position: relative;
 
 			image {
-				top: 0;
-				left: 0;
-				position: absolute;
+				//top: 0;
+				//left: 0;
+				//position: absolute;
 				width: 100%;
 				height: 100%;
 			}
@@ -91,6 +91,7 @@
 				top: 60rpx;
 				left: 100rpx;
 				border-radius: 25px;
+				font-size: 12px;
 			}
 
 		}
@@ -113,6 +114,7 @@
 				.grade-button {
 					margin: 10px 0;
 					flex-basis: 30%;
+					font-size: 12px;
 					background-color: $ant-color-geekblue-2;
 				}
 			}
