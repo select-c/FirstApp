@@ -2,7 +2,7 @@
 	<view class="content">
 		<view class="home-header">
 			<!-- <image class="card-img" src='../../../static/img/dog.jpeg' mode="scaleToFill"></image> -->
-			<img class="card-img" src='../../../static/img/dog.jpeg' />
+			<!-- <img class="card-img" src='../../../static/img/dog.jpeg' /> -->
 			<button type="primary" class="start-btn" @click="goto()">开始学习单词</button>
 		</view>
 		<view class="school-grade">
@@ -10,9 +10,9 @@
 				<text>各个年级的单词表</text>
 			</view>
 			<view class="grade-list">
-				<uni-button class="grade-button" v-for="(item,index) in data" @click="itemClick(item)">
-					{{item.GradeName}}
-				</uni-button>
+				<button class="grade-button" v-for="(item,index) in types" @click="itemClick(item)">
+					{{item.TypeName}}
+				</button>
 			</view>
 		</view>
 	</view>
@@ -25,6 +25,7 @@
 			return {
 				title: 'Hello',
 				data: [],
+				types: [],
 			};
 		},
 		onLoad() {
@@ -33,15 +34,26 @@
 				console.log(res);
 				this.data = res;
 			})
+			//获取类别
+			this.getTypeData();
 		},
 		methods: {
 			itemClick(item) {
-				this.$utils.showTotast(item.GradeName)
-				this.$utils.showPage(this, "/school-play", "schoolplay", {})
+				console.log(item);
+				this.$utils.navigateTo("/pages/workflow/school-play", {
+						item: item
+					})
 					.then(value => {
 						console.log("跳转成功");
 					});
 
+			},
+			//加载类别
+			getTypeData() {
+				this.$service.callBo("WordBO", "GetItemType").then(res => {
+					if (res)
+						this.types = res;
+				})
 			},
 			goto() {
 				uni.navigateTo({
@@ -64,6 +76,7 @@
 		.home-header {
 			width: 100%;
 			max-height: 50vh;
+			min-height: 30vh;
 			position: relative;
 
 			image {
@@ -113,6 +126,7 @@
 
 				.grade-button {
 					margin: 10px 0;
+					padding:10px 0;
 					flex-basis: 30%;
 					font-size: 12px;
 					background-color: $ant-color-geekblue-2;

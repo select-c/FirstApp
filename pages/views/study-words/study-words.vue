@@ -27,10 +27,7 @@
 </template>
 
 <script>
-	var plugin = requirePlugin("WechatSI");
-	const audio = wx ? wx.createInnerAudioContext({
-		useWebAudioImplement: true
-	}) : null;
+	import WSI from '../../service/WechatSI'
 	export default {
 		data() {
 			return {
@@ -45,12 +42,6 @@
 			}
 		},
 		onLoad() {
-			audio.autoplay=true;
-			audio.playbackRate=2.5;
-			audio.volume = 1;
-			audio.onPlay(() => {
-				console.log('开始播放')
-			})
 			this.$service.callBo("WordBO", "GetList", {}).then(res => {
 				if (res) {
 					this.data = res;
@@ -59,9 +50,9 @@
 			});
 			//this.textToSpeech();
 
-			setTimeout(()=>{
+			setTimeout(() => {
 				//生成答对了和答错了语音地址
-				let that=this;
+				let that = this;
 				plugin.textToSpeech({
 					lang: "zh_CN",
 					tts: true,
@@ -71,7 +62,7 @@
 					},
 					fail: function(res) {
 						console.log("fail tts", res)
-					}					
+					}
 				});
 				plugin.textToSpeech({
 					lang: "zh_CN",
@@ -83,35 +74,11 @@
 					fail: function(res) {
 						console.log("fail tts", res)
 					}
-				})				
-			,10000})
+				}), 10000
+			})
 
 		},
 		methods: {
-			/** 文字转语音 */
-			textToSpeech() {
-				let that = this;
-				let text=that.itemSelect.WordName;
-				plugin.textToSpeech({
-					lang: "zh_CN",
-					tts: true,
-					content: text,
-					success: function(res) {
-						that.speech(res.filename)
-					},
-					fail: function(res) {
-						console.log("fail tts", res)
-					}
-				})
-			},
-			speech(url) {
-				//audio.autoplay = true;
-				audio.src = url;				
-				
-				// audio.onPlay(() => {
-				// 	console.log('开始播放')
-				// })
-			},
 			//生成随机单词
 			getItems() {
 				if (this.qty >= this.sumQty) {
@@ -147,32 +114,26 @@
 				}
 				this.items.forEach(o => o.IsCheck = false);
 				this.items = this.items.sort(() => 0.5 - Math.random());
-				this.textToSpeech();
+				WSI.textToSpeech(this.itemSelect.WordName);
 			},
 			//选择单词触发
 			onSelected(item) {
-				console.log(this.tUrl);
-				console.log(this.tUrl);
 				item.IsCheck = true;
 				if (item.WordName == this.itemSelect.WordName) {
 					uni.showToast({
 						title: "回答正确！",
 					});
-					if (this.tUrl)
-						this.speech(this.tUrl);
 					//产生下一题单词
 					++this.qty;
-					setTimeout(()=>{
-					this.getItems();	
-					},500)
-					
+					setTimeout(() => {
+						this.getItems();
+					}, 500)
+
 				} else {
 					uni.showToast({
 						title: "回答错误！",
 						icon: "error",
 					})
-					if (this.fUrl)
-						this.speech(this.fUrl);
 				}
 			},
 			//退出
@@ -239,7 +200,7 @@
 				}
 			}
 
-			.words-close {		
+			.words-close {
 				width: 50%;
 				height: 180rpx;
 				position: absolute;

@@ -1,10 +1,17 @@
 let server = "https://www.chavefun.work"
-//let server="http://localhost:1060"
-//let server="http://localhost:520"
-let servicePath ="/WebService.asmx"   
-//let server = "http://localhost:3000"
-//let servicePath="/room"
-export{
+let servicePath = "/WebService.asmx"
+
+// #ifdef APP-PLUS 
+server = "https://www.chavefun.work"
+// #endif
+// #ifdef APP-H5
+server = "http://localhost:1060"
+// #endif
+// #ifdef APP-MP
+server = "https://www.chavefun.work"
+// #endif
+
+export {
 	server,
 	servicePath,
 }

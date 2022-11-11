@@ -237,7 +237,7 @@
 		.word-left {
 			width: 100px;
 			background: #eee;
-
+			
 			.active {
 				border-left: 2px solid orangered;
 				background: white;
@@ -245,6 +245,8 @@
 
 			.type-btn {
 				border-radius: unset !important;
+				font-size: 14px;
+				color:gray;
 			}
 
 			.type-btn:after {

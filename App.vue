@@ -23,7 +23,8 @@ export default {
 </script>
 
 <style>
-	@import url("@/static/iconfont/index.css");
+	@import url("@/static/iconfont/font/iconfont.css");
+	/* @import url("//at.alicdn.com/t/c/font_1675303_9wcktjblln.css"); */
 /*每个页面公共css */ 
 .uni-body{
 	background-color: #f5f5f5 !important;

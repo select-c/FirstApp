@@ -4,7 +4,7 @@
 		{
 			"path": "pages/tabbar/tabbar-1/tabbar-1",
 			"style": {
-				"navigationBarTitleText": "单词古诗"
+				"navigationBarTitleText": "学习乐园"
 			}
 		},
 		{
@@ -56,7 +56,12 @@
 		{
 			"path": "pages/views/wordtype-master-edit/wordtype-master-edit",
 			"style": {}
+		},		
+		{
+			"path": "pages/workflow/school-play",
+			"style": {}
 		}
+		
 	],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
