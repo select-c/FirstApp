@@ -1,8 +1,8 @@
 <template>
 	<view class="content">
 		<view class="home-header">
-			<!-- <image class="card-img" src='../../../static/img/dog.jpeg' mode="scaleToFill"></image> -->
-			<!-- <img class="card-img" src='../../../static/img/dog.jpeg' /> -->
+			<image class="card-img" src='../../../static/img/dog.jpeg' mode="scaleToFill"></image>
+			<img class="card-img" src='../../../static/img/dog.jpeg' />
 			<button type="primary" class="start-btn" @click="goto()">开始学习单词</button>
 		</view>
 		<view class="school-grade">

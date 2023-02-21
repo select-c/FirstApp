@@ -1,6 +1,6 @@
 var plugin = null;
- // #ifdef APP-PLUS
-var plugin = requirePlugin("WechatSI");
+// #ifdef MP
+plugin = requirePlugin("WechatSI");
 // #endif
 
 
@@ -18,6 +18,8 @@ export default {
 	/** 文字转语音 */
 	textToSpeech(text) {
 		//let that = this;
+		if (plugin == null)
+			return;
 		plugin.textToSpeech({
 			lang: "zh_CN",
 			tts: true,
