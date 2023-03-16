@@ -1,6 +1,6 @@
 <template>
 	<view class="content">
-		页面 - 2
+		图片展示
 		<button @click="postData()"></button>
 	</view>
 </template>
