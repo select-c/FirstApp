@@ -4,10 +4,11 @@ let servicePath = "/WebService.asmx"
 // #ifdef APP-PLUS 
 server = "https://www.chavefun.work"
 // #endif
-// #ifdef APP-H5
+// #ifdef H5
 server = "http://localhost:1060"
+server = "https://www.chavefun.work"
 // #endif
-// #ifdef APP-MP
+// #ifdef MP
 server = "https://www.chavefun.work"
 // #endif
 

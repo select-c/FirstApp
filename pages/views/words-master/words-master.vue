@@ -1,7 +1,7 @@
 <template>
 	<view class="words-master">
 		<view class="search-bar">
-			<uni-search-bar v-model="searchValue" @input="change" cancelButton="none">
+			<uni-search-bar v-model="searchValue" @input="change" :focus="true"  cancelButton="none">
 			</uni-search-bar>
 			<button class="type-btn" type="default" plain="true" @click="type">
 				类别
@@ -220,11 +220,12 @@
 			}
 
 			.add-btn {
-				border: unset !important;
+				border: unset !important;				
 			}
 
 			.iconfont {
 				font-size: 1.2rem;
+				color:#387ef5;
 			}
 		}
 
