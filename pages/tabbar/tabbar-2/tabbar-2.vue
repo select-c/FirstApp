@@ -2,6 +2,10 @@
 	<view class="content">
 		图片展示
 		<button @click="postData()"></button>
+		<div v-for="item in data" :key="item.RoomNo">
+		<div>{{ item.RoomNo }}</div>	
+		<div>{{ item.RoomName }}</div>
+	</div>
 	</view>
 </template>
 
