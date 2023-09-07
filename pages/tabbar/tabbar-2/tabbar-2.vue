@@ -1,11 +1,23 @@
 <template>
-	<view class="content">
-		图片展示
-		<button @click="postData()"></button>
-		<div v-for="item in data" :key="item.RoomNo">
-		<div>{{ item.RoomNo }}</div>	
-		<div>{{ item.RoomName }}</div>
-	</div>
+	<view class="count">
+		<view class="count-header">
+			<image src="../../../static/img/user.png"></image>
+			<view>select</view>
+		</view>
+		<view class="count-content">
+			<view class="content-left">
+				<view>0</view>
+				<view>好友排名</view>
+			</view>
+			<view class="content-right">
+				<view>较远</view>
+				<view>全球排名</view>
+			</view>
+		</view>
+		<view class="count-footer">
+			<button>我要开房</button>
+			<button>扫码进房</button>
+		</view>
 	</view>
 </template>
 
@@ -13,51 +25,54 @@
 	export default {
 		data() {
 			return {
-				title: 'Hello'
+				title: 'Hello',
 			}
 		},
 		onLoad() {
 
 		},
 		methods: {
-			postData() {
-				let params = {
-					methodName: "insert",
-					data: [{
-							RoomNo: "101",
-							RoomName: "101房"
-						},
-						{
-							RoomNo: "101",
-							RoomName: "101房"
-						},
-						{
-							RoomNo: "101",
-							RoomName: "101房"
-						},
-						{
-							RoomNo: "101",
-							RoomName: "101房"
-						},
-						{
-							RoomNo: "101",
-							RoomName: "101房"
-						}
-					]
-				}
-				this.$service.callBO("WxLoginBO", "getPhoneNumber", params).then(res => {
-					console.log(res);
-					//this.mobile = res;
-				});
-			},
+
 		}
 	}
 </script>
 
-<style>
-	.content {
+<style lang="scss">
+	.count {
 		text-align: center;
 		height: 400upx;
-		margin-top: 200upx;
-	}
+		margin-top: 100upx;
+		.count-header{
+			image{
+				width:200upx;
+				height: 200upx;
+			}
+			view{
+				margin-top:20upx;
+			}
+		} 
+		.count-content{
+			padding:50upx;
+			display: flex;
+			flex-flow: row;
+			.content-left{
+				flex:1;
+			}
+			.content-right{
+				flex:1;
+				border-left:1px solid gray;
+			}
+		}
+		.count-footer{
+			button{
+				margin:20upx;
+				border:1px solid rgb(229,116,58);
+				color:rgb(229,116,58);
+			}
+			button:first-child {
+				background-color: rgb(229,116,58);
+				color:white;
+			}
+		}
+	}	
 </style>

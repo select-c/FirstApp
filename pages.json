@@ -91,9 +91,9 @@
 			},
 			{
 				"pagePath": "pages/tabbar/tabbar-2/tabbar-2",
-				"iconPath": "static/img/tabbar/guanzhu.png",
-				"selectedIconPath": "static/img/tabbar/guanzhuactive.png",
-				"text": "关注"
+				"iconPath": "static/img/tabbar/count.png",
+				"selectedIconPath": "static/img/tabbar/countactive.png",
+				"text": "记账"
 			},
 			//#ifdef MP-WEIXIN
 			{
